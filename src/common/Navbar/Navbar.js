@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Navbar(props) {
     return (
@@ -11,15 +12,33 @@ function Navbar(props) {
 
                     <ul className="nav-menu active">
                         <li>
-                            <link to='/'>Home</link>
-                            <link to='/about'>About</link>
-                            <link to='gallery/'>Gallery</link>
-                            <link to='/destination'>Destination</link>
-                            <link to='/blog'>Blog</link>
-                            <link to='/testimonial'>Testimonial</link>
-                            <link to='/contact'>Contact Us</link>
+                            <NavLink to='/'>Home</NavLink>
+                            <NavLink to='/about'>About</NavLink>
+                            <NavLink to='/gallery'>Gallery</NavLink>
+                            <NavLink to='/destination'>Destination</NavLink>
+                            <NavLink to='/blog'>Blog</NavLink>
+                            <NavLink to='/testimonial'>Testimonial</NavLink>
+                            <NavLink to='/contact'>Contact Us</NavLink>
                         </li>
                     </ul>
+
+                    <div className="login-area flex">
+                        <li>
+                            <NavLink to='/sign-in'>
+                                <i className='far fa-chevron-right'>Sign In</i>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/register'>
+                                <i className='far fa-chevron-right'>Register</i>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/contact'>
+                                <button className='primary-btn'>Request a Quote</button>
+                            </NavLink>
+                        </li>
+                    </div>
                 </div>
             </nav>
         </>
