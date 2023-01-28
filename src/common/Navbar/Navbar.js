@@ -1,48 +1,80 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar(props) {
-    return (
-        <>
-            <nav className='navbar'>
-                <div className="container flex_space">
-                    <div className="meni-icon">
-                        <i className='fas fa-times'></i>
-                    </div>
+  const [click, setClick] = useState(false);
 
-                    <ul className="nav-menu active">
-                        <li>
-                            <NavLink to='/'>Home</NavLink>
-                            <NavLink to='/about'>About</NavLink>
-                            <NavLink to='/gallery'>Gallery</NavLink>
-                            <NavLink to='/destination'>Destination</NavLink>
-                            <NavLink to='/blog'>Blog</NavLink>
-                            <NavLink to='/testimonial'>Testimonial</NavLink>
-                            <NavLink to='/contact'>Contact Us</NavLink>
-                        </li>
-                    </ul>
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
 
-                    <div className="login-area flex">
-                        <li>
-                            <NavLink to='/sign-in'>
-                                <i className='far fa-chevron-right'>Sign In</i>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/register'>
-                                <i className='far fa-chevron-right'>Register</i>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/contact'>
-                                <button className='primary-btn'>Request a Quote</button>
-                            </NavLink>
-                        </li>
-                    </div>
-                </div>
-            </nav>
-        </>
-    );
+  return (
+    <>
+      <nav className="navbar">
+        <div className="container flex_space">
+          <div className="menu-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+          </div>
+
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li>
+              <Link to="/" onClick={closeMobileMenu}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={closeMobileMenu}>
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/gallery" onClick={closeMobileMenu}>
+                Gallery
+              </Link>
+            </li>
+            <li>
+              <Link to="/destination onClick={closeMobileMenu}">
+                Destination
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog" onClick={closeMobileMenu}>
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link to="/testimonial" onClick={closeMobileMenu}>
+                Testimonial
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={closeMobileMenu}>
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+
+          <div className="login-area flex">
+            <li>
+              <Link to="/sign-in">
+                <i className="far fa-chevron-right"></i>Sign In
+              </Link>
+            </li>
+            <li>
+              <Link to="/register">
+                <i className="far fa-chevron-right"></i>Register
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact">
+                <button className="primary-btn">Request a Quote</button>
+              </Link>
+            </li>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
 }
 
 export default Navbar;
