@@ -60,7 +60,7 @@ nav i {
   margin-left: 20px;
 }
 
-@media screen and (max-width: 1167px) {
+@media screen and (max-width: 1022px) {
   .login-area {
     position: absolute;
     right: 20px;
