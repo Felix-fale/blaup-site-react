@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from '../../assets/logo.png'
 
 function Navbar(props) {
   const [click, setClick] = useState(false);
@@ -73,6 +74,44 @@ function Navbar(props) {
           </div>
         </div>
       </nav>
+
+      <header>
+        <div className="container flex_space">
+          <div className="logo">
+            <img src={logo} alt="logo" />
+          </div>
+
+          <div className="contact flex_space">
+            <div className="box flex_space">
+              <div className="icons">
+                <i className="far fa-clock"></i>
+              </div>
+              <div className="text">
+                <h4>Working Hours</h4>
+                <Link to="/contact">Monday - Sunday: 9.00am to 6.00pm</Link>
+              </div>
+            </div>
+            <div className="box flex_space">
+              <div className="icons">
+                <i className="fas fa-phone-volume"></i>
+              </div>
+              <div className="text">
+                <h4>Call Us Hours</h4>
+                <Link to="/contact">+228 97 17 13 91</Link>
+              </div>
+            </div>
+            <div className="box flex_space">
+              <div className="icons">
+                <i className="fas fa-phone-volume"></i>
+              </div>
+              <div className="text">
+                <h4>Call Us Hours</h4>
+                <Link to="/contact">+228 97 17 13 91</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
     </>
   );
 }
